@@ -29,12 +29,17 @@ class TiketVelvet extends Tiket {
     }
 
     /**
-     * Menghitung total harga untuk studio Velvet (Harga Dasar * Jumlah Kursi)
+     * [OVERRIDE] Menghitung total harga untuk studio Velvet.
+     * Logika Bisnis: Dikenakan surcharge/biaya tambahan kelas premium
+     * sebesar 50% dari total harga dasar.
+     * Formula: (jumlah_kursi * hargaDasarTiket) * 1.50
      *
-     * @return float
+     * @return float Total harga tiket Velvet
      */
     public function hitungTotalHarga() {
-        return $this->hargaDasarTiket * $this->jumlah_kursi;
+        // Surcharge kelas premium Velvet: 50% dari total harga dasar
+        $surchargeKlasPremium = 1.50;
+        return ($this->jumlah_kursi * $this->hargaDasarTiket) * $surchargeKlasPremium;
     }
 
     /**

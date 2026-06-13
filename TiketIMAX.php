@@ -29,12 +29,17 @@ class TiketIMAX extends Tiket {
     }
 
     /**
-     * Menghitung total harga untuk studio IMAX (Harga Dasar * Jumlah Kursi)
+     * [OVERRIDE] Menghitung total harga untuk studio IMAX.
+     * Logika Bisnis: Dikenakan biaya tambahan teknologi proyeksi layar lebar IMAX
+     * dan audio flat sebesar Rp35.000.
+     * Formula: (jumlah_kursi * hargaDasarTiket) + 35000
      *
-     * @return float
+     * @return float Total harga tiket IMAX
      */
     public function hitungTotalHarga() {
-        return $this->hargaDasarTiket * $this->jumlah_kursi;
+        // Biaya tambahan teknologi proyeksi IMAX & audio flat
+        $biayaTeknologiIMAX = 35000;
+        return ($this->jumlah_kursi * $this->hargaDasarTiket) + $biayaTeknologiIMAX;
     }
 
     /**

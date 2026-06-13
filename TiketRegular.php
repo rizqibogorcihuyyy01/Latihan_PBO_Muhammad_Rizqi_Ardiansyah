@@ -29,12 +29,15 @@ class TiketRegular extends Tiket {
     }
 
     /**
-     * Menghitung total harga untuk studio Regular (Harga Dasar * Jumlah Kursi)
+     * [OVERRIDE] Menghitung total harga untuk studio Regular.
+     * Logika Bisnis: Tarif standar murni tanpa biaya tambahan fasilitas.
+     * Formula: jumlah_kursi * hargaDasarTiket
      *
-     * @return float
+     * @return float Total harga tiket Regular
      */
     public function hitungTotalHarga() {
-        return $this->hargaDasarTiket * $this->jumlah_kursi;
+        // Tarif standar murni: tidak ada biaya tambahan fasilitas
+        return $this->jumlah_kursi * $this->hargaDasarTiket;
     }
 
     /**
