@@ -31,7 +31,7 @@ class Database {
             // Mengatur charset koneksi ke UTF-8
             $this->conn->exec("set names utf8mb4");
         } catch (PDOException $exception) {
-            echo "Koneksi database bermasalah: " . $exception->getMessage();
+            throw new Exception("Koneksi database bermasalah: " . $exception->getMessage());
         }
 
         return $this->conn;
